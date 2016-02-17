@@ -14,6 +14,9 @@ import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import webpack from 'webpack';
 
+const reload = browserSync.reload;
+
+
 // configuration
 const config = {
 	templates: {
@@ -104,7 +107,7 @@ gulp.task('styles', () => {
 		.pipe(gulpif(!config.dev, cssnano()))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(config.styles.dest))
-		.pipe(gulpif(config.dev, browserSync.reload({ stream: true })));
+		.pipe(gulpif(config.dev, reload({ stream: true })));
 });
 
 
@@ -121,8 +124,6 @@ gulp.task('images', () => {
 
 // server
 gulp.task('serve', () => {
-
-	let reload = browserSync.reload;
 
 	browserSync({
 		server: {
@@ -152,7 +153,7 @@ gulp.task('serve', () => {
 gulp.task('default', ['clean', 'lint'], () => {
 
 	// define build tasks
-	let tasks = [
+	const tasks = [
 		'templates',
 		'scripts',
 		'styles',
