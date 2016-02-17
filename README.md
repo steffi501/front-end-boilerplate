@@ -4,7 +4,10 @@
 
 ## Quick Start
 
-TODO: add templated setup script
+```
+$ curl -L https://github.com/dynamit/front-end-boilerplate/archive/master.tar.gz | tar zx --strip 1 && rm README.md && mv README.md.tmp README.md && echo -e "\e[31mYour new project has been setup.\n\e[1mUpdate the README.md\!"
+$ npm start
+```
 
 ## Features
 

@@ -1,0 +1,15 @@
+{{project-name}}
+
+> {{description}}
+
+## Local development
+
+```
+$ npm start
+```
+
+## Build for distribution
+
+```
+$ npm run build
+```
