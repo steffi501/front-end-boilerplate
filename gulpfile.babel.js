@@ -151,8 +151,6 @@ gulp.task('serve', () => {
 // default build task
 gulp.task('default', ['clean', 'lint'], () => {
 
-	console.log('asdasd')
-
 	// define build tasks
 	let tasks = [
 		'templates',
