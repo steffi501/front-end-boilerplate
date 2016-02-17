@@ -2,20 +2,27 @@
 
 > A scaffold for new front-end projects
 
+## Features
+
+- Streaming [build system](http://gulpjs.com/)
+- Dynamic [HTML templating](https://github.com/fbrctr/fabricator-assemble)
+- Sass [compilation](https://github.com/sass/node-sass), [vendor prefixing](https://github.com/postcss/autoprefixer), and [minification](https://github.com/ben-eb/cssnano)
+- JavaScript [module bundling](https://github.com/webpack/webpack), [optimization](https://github.com/mishoo/UglifyJS2), and [linting](http://eslint.org/)
+- Image [optimization](https://github.com/imagemin/imagemin)
+- Code formatting rules via [EditorConfig](http://editorconfig.org/) and [JS Beautifier](https://github.com/beautify-web/js-beautify)
+- Boilerplate README
+
 ## Quick Start
+
+Scaffold a new project by running these commands:
 
 ```
 $ curl -L https://github.com/dynamit/front-end-boilerplate/archive/master.tar.gz | tar zx --strip 1
 $ npm run setup
 ```
 
-## Features
+After the setup is compete, update the README with your project's info.
 
-- Dynamic [HTML templating](https://github.com/fbrctr/fabricator-assemble)
-- Sass [compilation](https://github.com/sass/node-sass), [vendor prefixing](https://github.com/postcss/autoprefixer), and [minification](https://github.com/ben-eb/cssnano)
-- JavaScript [module bundling](https://github.com/webpack/webpack), [optimization](https://github.com/mishoo/UglifyJS2), and [linting](http://eslint.org/)
-- Image [optimization](https://github.com/imagemin/imagemin)
-- Code formatting rules via [EditorConfig](http://editorconfig.org/) and [JS Beautifier](https://github.com/beautify-web/js-beautify)
 
 ## Local development
 
@@ -39,7 +46,7 @@ In addition to the standard build tasks, this minifies CSS and uglifies JavaScri
 
 ## Configuration
 
-Configuration values are defined in the `config` object in `gulpfile.js`
+Configuration values are defined in the `config` object in `gulpfile.babel.js`
 
 Available options, with defaults shown:
 
@@ -48,7 +55,9 @@ templates: {
 	src: ['src/templates/**/*', '!src/templates/+(layouts|components)/**'],
 	dest: 'dist',
 	watch: ['src/templates/**/*', 'src/data/**/*.json'],
-	partials: ['src/templates/components/**/*']
+	layouts: 'src/templates/layouts/*',
+	partials: ['src/templates/components/**/*'],
+	data: 'src/data/**/*.{json,yml}'
 },
 scripts: {
 	src: './src/assets/scripts/main.js',
@@ -127,3 +136,14 @@ assemble({
 	}
 });
 ```
+
+## License
+
+The MIT License (MIT)
+Copyright (c) 2016 Dynamit
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
