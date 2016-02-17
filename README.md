@@ -5,8 +5,8 @@
 ## Quick Start
 
 ```
-$ curl -L https://github.com/dynamit/front-end-boilerplate/archive/master.tar.gz | tar zx --strip 1 && rm README.md && mv README.tmp.md README.md && echo -e "\e[31mYour new project has been setup.\n\e[1mUpdate the README.md\!"
-$ npm start
+$ curl -L https://github.com/dynamit/front-end-boilerplate/archive/master.tar.gz | tar zx --strip 1
+$ npm run setup
 ```
 
 ## Features
