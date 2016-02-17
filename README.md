@@ -5,15 +5,15 @@
 ## Quick Start
 
 ```
-$ curl -L https://github.com/dynamit/front-end-boilerplate/archive/master.tar.gz | tar zx --strip 1 && rm README.md && mv README.md.tmp README.md && echo -e "\e[31mYour new project has been setup.\n\e[1mUpdate the README.md\!"
+$ curl -L https://github.com/dynamit/front-end-boilerplate/archive/master.tar.gz | tar zx --strip 1 && rm README.md && mv README.tmp.md README.md && echo -e "\e[31mYour new project has been setup.\n\e[1mUpdate the README.md\!"
 $ npm start
 ```
 
 ## Features
 
 - Dynamic [HTML templating](https://github.com/fbrctr/fabricator-assemble)
-- Sass [compilation](https://github.com/sass/node-sass), [vendor prefixing](https://github.com/postcss/autoprefixer), and [minification](https://github.com/css/csso)
-- JavaScript [module bundling](https://github.com/substack/node-browserify), [optimization](https://github.com/mishoo/UglifyJS2), and [linting](https://www.npmjs.com/package/jshint)
+- Sass [compilation](https://github.com/sass/node-sass), [vendor prefixing](https://github.com/postcss/autoprefixer), and [minification](https://github.com/ben-eb/cssnano)
+- JavaScript [module bundling](https://github.com/webpack/webpack), [optimization](https://github.com/mishoo/UglifyJS2), and [linting](http://eslint.org/)
 - Image [optimization](https://github.com/imagemin/imagemin)
 - Code formatting rules via [EditorConfig](http://editorconfig.org/) and [JS Beautifier](https://github.com/beautify-web/js-beautify)
 
