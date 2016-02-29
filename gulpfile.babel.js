@@ -100,11 +100,13 @@ gulp.task('lint', (done) => {
 gulp.task('styles', () => {
 	return gulp.src(config.styles.src)
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({
+			includePaths: './node_modules'
+		}).on('error', sass.logError))
 		.pipe(autoprefixer({
 			browsers: config.styles.browsers
 		}))
-		.pipe(gulpif(!config.dev, cssnano()))
+		.pipe(gulpif(!config.dev, cssnano({ autoprefixer: false })))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(config.styles.dest))
 		.pipe(gulpif(config.dev, reload({ stream: true })));
