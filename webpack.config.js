@@ -68,7 +68,7 @@ module.exports = function (config) {
 		resolve: {
 			extensions: ['', '.js', '.jsx', '.html']
 		},
-		devtool: '#inline-source-map',
+		devtool: config.dev ? '#inline-source-map' : '',
 		module: {
 			loaders: getLoaders(config.dev)
 		},
