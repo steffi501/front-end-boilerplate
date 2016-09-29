@@ -12,9 +12,17 @@ const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const webpack = require('webpack');
+const postcss = require('gulp-postcss');
+var Server = require('karma').Server;
 
 const reload = browserSync.reload;
 
+// PostCSS Config Array
+const postCSSConfig = [
+  require('postcss-import')(), // PostCSS plugin to inline @import rules content
+  require('postcss-cssnext')(), // Use tomorrow's CSS syntax, today
+  require('precss')() // Sass-like markup in your CSS
+];
 
 // configuration
 const config = {
@@ -49,6 +57,13 @@ const config = {
 // clean
 gulp.task('clean', del.bind(null, ['dist']));
 
+// tests
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: false
+  }, done).start();
+});
 
 // templates
 gulp.task('templates', (done) => {
@@ -95,7 +110,7 @@ gulp.task('lint', () => {
 });
 
 
-// styles
+// SASS styles
 gulp.task('styles', () => {
   return gulp.src(config.styles.src)
     .pipe(sourcemaps.init())
@@ -110,6 +125,16 @@ gulp.task('styles', () => {
     .pipe(gulp.dest(config.styles.dest))
     .pipe(gulpif(config.dev, reload({ stream: true })));
 });
+
+// PostCSS Styles
+/*
+gulp.task('styles', () => {
+  return gulp.src(config.styles.src)
+    .pipe(postcss(postCSSConfig))
+    .pipe(gulpif(config.dev, reload({ stream: true })))
+    .pipe(gulp.dest(config.styles.dest));
+});
+*/
 
 
 // images
