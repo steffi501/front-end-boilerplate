@@ -1,7 +1,7 @@
 const assemble = require('fabricator-assemble');
-const autoprefixer = require('gulp-autoprefixer');
+//const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
-const cssnano = require('gulp-cssnano');
+//const cssnano = require('gulp-cssnano');
 const del = require('del');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
@@ -10,10 +10,10 @@ const imagemin = require('gulp-imagemin');
 const notifier = require('node-notifier');
 const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
+//const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const webpack = require('webpack');
 // const postcss = require('gulp-postcss');
-const Server = require('karma').Server;
 
 const reload = browserSync.reload;
 
@@ -63,13 +63,6 @@ const config = {
 // clean
 gulp.task('clean', del.bind(null, ['dist']));
 
-// tests
-gulp.task('test', (done) => {
-  new Server({
-    configFile: `${__dirname}/karma.conf.js`,
-    singleRun: false,
-  }, done).start();
-});
 
 // templates
 gulp.task('templates', (done) => {
@@ -171,10 +164,11 @@ gulp.task('styles', () =>
     .pipe(sass({
       includePaths: './node_modules',
     }).on('error', sass.logError))
-    .pipe(autoprefixer({
-      browsers: config.styles.browsers,
-    }))
-    .pipe(gulpif(!config.dev, cssnano({ autoprefixer: false })))
+    //.pipe(autoprefixer({
+      //browsers: config.styles.browsers,
+    //}))
+    //.pipe(gulpif(!config.dev, cssnano({ autoprefixer: false })))
+    //.pipe(gulpif(!config.dev, cleanCSS({colors: { opacity: false }})))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.styles.dest))
     .pipe(gulpif(config.dev, reload({ stream: true }))));
